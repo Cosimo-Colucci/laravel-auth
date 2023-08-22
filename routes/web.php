@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
@@ -15,15 +16,18 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    Route::get('/', [ DashboardController::class, 'home'])->name('home');
+    Route::get('/', [ AdminDashboardController::class, 'home'])->name('home');
+});
 
+Route::name('guest.')->group(function () {
+    Route::get('/', [ GuestHomeController::class, 'home'])->name('home');
 });
