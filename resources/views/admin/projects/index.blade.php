@@ -15,27 +15,28 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th>1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>edit</td>
-                </tr>
-                <tr>
-                    <th>1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>edit</td>
-                </tr>
-                <tr>
-                    <th>1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>edit</td>
-                </tr>
+                @foreach ($projects as $project)
+                    <tr>
+                        <th>
+                            {{$project->id}} 
+                        </th>
+                        <td>
+                            {{$project->title}} 
+                        </td>
+                        <td>
+                            {{$project->project_start}}    
+                        </td>
+                        <td>
+                            {{$project->slug}}
+                        </td>
+                        <td>
+                            {{$project->owner}}
+                        </td>
+                        <td>
+                            <a href="" class="btn btn-sm button-primary">View</a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
         </div>
