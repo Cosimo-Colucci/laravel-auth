@@ -33,7 +33,8 @@
                                 {{$project->owner}}
                             </td>
                             <td>
-                                <a href="" class="btn btn-sm button-primary">View</a>
+                            <a href="{{route('admin.projects.show', $project->id)}}" class="btn btn-sm btn-primary">View</a>
+                            <a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-sm btn-success">Edit</a>
                             </td>
                         </tr>
                     @endforeach
