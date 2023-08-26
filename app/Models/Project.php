@@ -16,6 +16,5 @@ class Project extends Model
         'data',
         'slug',
         'project_start',
-        'owner',
     ];
 }

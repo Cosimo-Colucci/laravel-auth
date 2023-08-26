@@ -39,14 +39,18 @@ class ProjectController extends Controller
             'image' => ['url:https'],
             'project_start' => ['required',],
             'content' => ['required', 'min:20'],
-            'owner'=>['required', 'min:5'],
         ]);
-
+        $ownerId= 'pepa';
+        // $ownerId= {{ Auth::}};
+        // dd($data);
+        
         $data["slug"] = Str::of($data['title'])->slug('-');
-        // $newProject= new Project();
-        // $newProject->fill($data);
-        // $newProject->save();
-        $newProject= Project::create($data);
+        $newProject= new Project();
+        $newProject->fill($data);
+        $newProject->owner=$ownerId;
+        // dd($newProject);
+        $newProject->save();
+        // $newProject= Project::create($data);
 
         return redirect()->route('admin.projects.index');
     }
