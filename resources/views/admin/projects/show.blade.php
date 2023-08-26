@@ -14,7 +14,14 @@
                     <p class="card-text">{{$project->content}}</p>
                     <h6>{{$project->project_start}}</h6>
                     <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                    <a href="#" class="btn btn-sm btn-warning">Soft Deleted</a>
+                    <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+                        @csrf
+                        @method('Delete')
+                        <button type="submit" class="btn btn-sm btn-warning">
+                            Deleted
+                        </button>
+                    </form>
+                    
                 </div>
             </div>
         </div>
