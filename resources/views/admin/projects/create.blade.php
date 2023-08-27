@@ -12,7 +12,7 @@
             @enderror
             <div class="form-group">
                 <label for="exampleFormControlInput1">Title</label>
-                <input type="text" class="form-control" id="title" placeholder="Insert Project Title" name="title">
+                <input type="text" class="form-control" id="title" placeholder="Insert Project Title" name="title" value="{{ old('title', '') }}">
             </div>
 
             @error('image')
@@ -20,7 +20,8 @@
             @enderror
             <div class="form-group">
                 <label for="exampleFormControlInput1">Image</label>
-                <input type="text" class="form-control" id="image" placeholder="https://...." name="image"">
+                <!-- <input type="text" class="form-control" id="image" placeholder="https://...." name="image""> -->
+                <input type="file" class="form-control" id="image" placeholder="https://...." name="image" value="{{ old('image', '') }}">
             </div>
 
             @error('date')
@@ -28,7 +29,7 @@
             @enderror
             <div class="form-group">
                 <label for="exampleFormControlInput1">Date</label>
-                <input type="date" class="form-control" id="project_start" name="project_start" placeholder="Type date of start">
+                <input type="date" class="form-control" id="project_start" name="project_start" placeholder="Type date of start" value="{{ old('project_start', '') }}">
             </div>
 
             @error('content')
@@ -36,7 +37,9 @@
             @enderror
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Content</label>
-                <textarea class="form-control" id="content" rows="10" name="content" placeholder="Insert Your Content"></textarea>
+                <textarea class="form-control" id="content" rows="10" name="content" placeholder="Insert Your Content">
+                {{ old('content', '') }}"
+                </textarea>
             </div>
             <div class="mb-3">
                 <button type="submit">
